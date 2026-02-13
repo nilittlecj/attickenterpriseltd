@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+Attick Enterprise Ltd Nakuru | Timber, Doors, Wood Machines & Job Vacancies
+</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Boxicons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+ <style>
+
+/* ===============================
+   COLOR SYSTEM
+================================= */
+:root {
+    --primary: #1F8A8A;
+    --accent: #FF7A45;
+    --bg-light: #F2F7F7;
+    --text-dark: #1E293B;
+    --white: #FFFFFF;
+    --soft-gray: #64748B;
+}
+
+/* ===============================
+   GLOBAL
+================================= */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* ===============================
+   HEADER
+================================= */
+.header {
+    position: fixed;
+    top: 0;
+    background: azure;
+    width: 100%;
+    z-index: 999;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+
+
+.header-left {
+    text-align: left;
+}
+
+.company-name {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.address {
+    color: var(--soft-gray);
+    margin-top: 5px;
+}
+
+.accent-line {
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent);
+    margin-top: 10px;
+}
+
+/* ===============================
+   MENU BUTTON
+================================= */
+.menu-btn {
+    position: fixed;   /* stays in place */
+    top: 25px;
+    right: 25px;
+    font-size: 34px;
+    cursor: pointer;
+    color: var(--primary);
+    z-index: 4000;     /* above everything */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;   /* vertically center */
+    gap: 15px;             /* space between logo & text */
+}
+
+.logo {
+    width: 60px;           /* slightly smaller for balance */
+    height: auto;
+    margin-bottom: 0;      /* remove bottom spacing */
+}
+
+
+/* ===============================
+   SIDEBAR
+================================= */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: var(--white);
+    overflow-x: hidden;
+    transition: 0.4s ease;
+    padding-top: 80px;
+    box-shadow: -8px 0 30px rgba(0,0,0,0.12);
+    z-index: 2000;
+}
+
+.sidebar a {
+    display: block;
+    padding: 18px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--primary);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: var(--bg-light);
+    color: var(--accent);
+    padding-left: 40px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 30px;
+    color: var(--primary);
+}
+
+/* ===============================
+   ABOUT SECTION
+================================= */
+#about {
+    padding: 220px 20px 60px 20px;
+    text-align: center;
+}
+
+#about h2 {
+    color: var(--primary);
+}
+
+#about p {
+    max-width: 700px;
+    margin: auto;
+    color: var(--soft-gray);
+}
+
+/* ===============================
+   GALLERY
+================================= */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 60px 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 14px;
+    transition: transform 0.4s ease;
+}
+
+/* Zoom effect */
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+/* Dark overlay */
+.gallery-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    transition: 0.4s ease;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* WhatsApp Button */
+.order-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 55px;
+    height: 55px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    text-decoration: none;
+    opacity: 0;
+    transition: 0.4s ease;
+    z-index: 2;
+}
+
+.gallery-item:hover .order-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.order-btn:hover {
+    background: var(--primary);
+}
+
+/* ===============================
+   MAP SECTION
+================================= */
+.map-section {
+    padding: 60px 20px;
+    background: var(--white);
+    text-align: center;
+}
+
+.map-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.map-section iframe {
+    width: 70%;
+    height: 250px;
+    border: none;
+    border-radius: 12px;
+}
+
+/* ===============================
+   FLOATING BUTTONS
+================================= */
+.floating-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.floating-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: white;
+    font-size: 28px;
+    text-decoration: none;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.floating-buttons a:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp {
+    background-color: #25D366;
+}
+
+.call {
+    background-color: var(--primary);
+}
+
+/* ===============================
+   FOOTER
+================================= */
+.footer {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.footer .social-icons {
+    margin-top: 15px;
+}
+
+.footer .social-icons a {
+    color: white;
+    font-size: 22px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.footer .social-icons a:hover {
+    color: var(--accent);
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    margin-top: 25px;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* Prevent header overlap */
+#about,
+.gallery,
+.map-section {
+    scroll-margin-top: 200px;
+}
+
+@media (max-width: 600px) {
+    .gallery img {
+        height: 180px;
+    }
+
+    .map-section iframe {
+        width: 100%;
+    }
+}
+.sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.sidebar a i {
+    font-size: 22px;
+}
+/* ===============================
+   CAREERS SECTION
+================================= */
+.careers-section {
+    padding: 80px 20px;
+    background: var(--bg-light);
+    text-align: center;
+}
+
+.careers-section h2 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.careers-section p {
+    color: var(--soft-gray);
+    margin-bottom: 40px;
+}
+
+.job-form {
+    max-width: 600px;
+    margin: auto;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+}
+
+.apply-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: var(--primary);
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.apply-btn:hover {
+    background: var(--accent);
+}
+/* ===============================
+   PRICE SECTION
+================================= */
+.price-section {
+    padding: 80px 20px;
+    background: var(--bg-light);
+}
+
+.price-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary);
+}
+
+.price-grid {
+    max-width: 900px;
+    margin: auto;
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 18px;
+    margin-bottom: 8px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.price-item span {
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.price-images {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.price-images img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+     max-width: 500px;   /* control maximum size */
+    height: auto;     /* keeps images proportional */
+    object-fit: cover;
+    border-radius: 14px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover effect (desktop only feel) */
+.price-images img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+@media (max-width: 768px) {
+    .price-images {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .price-images {
+        grid-template-columns: repeat(2, 1fr); /* always 2 columns on small phones */
+        gap: 12px;
+    }
+}
+
+.order-section {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.order-now-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: #25D366;
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+}
+
+.order-now-btn:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+}
+
+
+</style>
+</head>
+
+<body id="home">
+
+
+<div class="header">
+<div class="header-left">
+
+    <div class="logo-title">
+        <img src="logo1.png" alt="Attick Enterprise Logo" class="logo">
+        <div class="company-name">ATTICK ENTERPRISE</div>
+    </div>
+
+    <div class="address">P.O. Box 16145<br>Nakuru</div>
+    <div class="accent-line"></div>
+
+</div>
+
+
+    <div class="menu-btn" onclick="openSidebar()">
+        <i class='bx bx-menu'></i>
+    </div>
+</div>
+
+
+<div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">
+        <i class='bx bx-x'></i>
+    </a>
+
+    <a href="#home" onclick="closeSidebar()">
+        <i class='bx bx-home'></i> Home
+    </a>
+
+    <a href="#about" onclick="closeSidebar()">
+        <i class='bx bx-info-circle'></i> About Us
+    </a>
+
+    <a href="#location" onclick="closeSidebar()">
+        <i class='bx bx-map'></i> Location
+    </a>
+
+    <a href="#gallery" onclick="closeSidebar()">
+        <i class='bx bx-image'></i> Gallery
+    </a>
+    <a href="#vaccancy" onclick="closeSidebar()">
+    <i class='bx bx-briefcase'></i> Job Application
+</a>
+
+</div>
+
+
+
+    <div id="about" style="padding:220px 20px 40px 20px; text-align:center;">
+    <h2 style="color:#2bb3b1;">About Us</h2>
+    <p style="max-width:700px; margin:auto; color:#555;">
+        ATTICK ENTERPRISE LTD is committed to delivering quality and excellence 
+        in all our services. We take pride in serving our clients with professionalism and reliability.
+    </p>
+</div>
+
+<div id="prices" class="price-section">
+
+    <!-- ================= DOOR PRICES ================= -->
+    <h2>Door Prices</h2>
+
+    <div class="price-grid">
+        <div class="price-item">Button Door <span>KES 1,300</span></div>
+        <div class="price-item">Flush Door <span>KES 1,800</span></div>
+        <div class="price-item">Flush Veneer Door <span>KES 2,500</span></div>
+        <div class="price-item">Panel Mahogany Door <span>KES 2,700</span></div>
+        <div class="price-item">Panel Melamine Door <span>KES 2,750</span></div>
+    </div>
+
+  <!-- DOOR IMAGES -->
+<div class="price-images">
+    <img src="doors/buttondoor.jpeg">
+    <img src="doors/flashdoor.jpeg">
+    <img src="doors/v near.jpeg">
+    <img src="doors/paneldoor.jpeg">
+   
+</div>
+
+<div class="order-section">
+    <a href="https://wa.me/254712345678?text=Hello%20I%20am%20interested%20in%20your%20Door%20Products" 
+       target="_blank" 
+       class="order-now-btn">
+       <i class='bx bxl-whatsapp'></i> Order Doors Now
+    </a>
+</div>
+
+
+    <!-- ================= MACHINE PRICES ================= -->
+    <h2>Machine Prices</h2>
+
+    <div class="price-grid">
+        <div class="price-item">Wood Mizer <span>KES 700,000</span></div>
+        <div class="price-item">Crosscut Machine <span>KES 70,000</span></div>
+        <div class="price-item">Roller Bench <span>KES 300,000</span></div>
+        <div class="price-item">Mortizer <span>KES 70,000</span></div>
+        <div class="price-item">Sharpener <span>KES 300,000</span></div>
+        <div class="price-item">Press Machine <span>KES 80,000</span></div>
+        <div class="price-item">Re-saw Machine <span>KES 150,000</span></div>
+        <div class="price-item">Push Bench <span>KES 120,000</span></div>
+    </div>
+<div class="price-images">
+    <img src="machines/woodmizer.jpeg">
+    <img src="machines/rollerbench.jpeg">
+    <img src="machines/sharpener.jpeg">
+ 
+</div>
+
+<div class="order-section">
+    <a href="https://wa.me/254712345678?text=Hello%20I%20am%20interested%20in%20your%20Machines%20(Wood%20Mizer,%20Crosscut,%20etc)." 
+       target="_blank" 
+       class="order-now-btn">
+       <i class='bx bxl-whatsapp'></i> Order Machines Now
+    </a>
+</div>
+
+
+    <!-- ================= WOOD PRICES ================= -->
+    <h2>Wood Prices</h2>
+
+    <div class="price-grid">
+        <div class="price-item">Trappers <span>KES 180</span></div>
+        <div class="price-item">Door Frame 4x2 Std <span>KES 1,000</span></div>
+        <div class="price-item">Door Frame 4x2 Vent <span>KES 1,300</span></div>
+        <div class="price-item">Door Frame 6x2 Std <span>KES 1,500</span></div>
+        <div class="price-item">Door Frame 6x2 Vent <span>KES 2,500</span></div>
+        <div class="price-item">Corners (per ft) <span>KES 20</span></div>
+        <div class="price-item">1/4 Rounds (per ft) <span>KES 15</span></div>
+        <div class="price-item">Architraves (per ft) <span>KES 18</span></div>
+        <div class="price-item">Picture Rails (per ft) <span>KES 18</span></div>
+        <div class="price-item">Skatings (per ft) <span>KES 30</span></div>
+        <div class="price-item">2x2 (per ft) <span>KES 20</span></div>
+        <div class="price-item">3x2 (per ft) <span>KES 30</span></div>
+        <div class="price-item">4x2 (per ft) <span>KES 40</span></div>
+        <div class="price-item">6x2 (per ft) <span>KES 60</span></div>
+        <div class="price-item">8x2 (per ft) <span>KES 80</span></div>
+        <div class="price-item">12x2 (per ft) <span>KES 120</span></div>
+    </div>
+
+   <div class="price-images">
+    <img src="woods/picturerails.jpeg">
+    
+</div>
+
+<div class="order-section">
+    <a href="https://wa.me/254712345678?text=Hello%20I%20am%20interested%20in%20your%20Wood%20Products%20and%20Timber%20Prices." 
+       target="_blank" 
+       class="order-now-btn">
+       <i class='bx bxl-whatsapp'></i> Order Timber Now
+    </a>
+</div>
+
+
+</div>
+
+  <div class="map-section" id="location">
+
+        <div class="map-title">Our Location</div><iframe src="https://www.google.com/maps/embed?pb=!4v1770966178369!6m8!1m7!1svIotHjIYbIciqpM8FouSBQ!2m2!1d-0.2917583647125515!2d36.04899136791451!3f281.1196936501403!4f0!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div class="floating-buttons">
+        <a href="https://wa.me/254712345678" class="whatsapp" target="_blank">
+            <i class='bx bxl-whatsapp'></i>
+        </a>
+        <a href="tel:+254712345678" class="call">
+            <i class='bx bx-phone'></i>
+        </a>
+    </div>
+
+    <div id="vaccancy" class="careers-section">
+    <h2>Job Application – Lumber Yard</h2>
+    <p>Interested in working with ATTICK ENTERPRISE LTD? Fill out the form below.</p>
+
+    <form class="job-form" id="jobForm">
+
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" required>
+        </div>
+
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" required>
+        </div>
+
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="email">
+        </div>
+
+        <div class="form-group">
+            <label>Position Applying For</label>
+            <select required>
+                <option value="">Select Position</option>
+                <option>Lumber Yard Attendant</option>
+                <option>Machine Operator</option>
+                <option>Driver</option>
+                <option>Sales Assistant</option>
+                <option>General Worker</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Work Experience</label>
+            <textarea rows="4"></textarea>
+        </div>
+
+
+        <button type="submit" class="apply-btn">
+            <i class='bx bx-send'></i> Submit Application
+        </button>
+    </form>
+</div>
+
+
+<div class="footer">
+    <h3>ATTICK ENTERPRISE LTD</h3>
+    <p>P.O. Box 16145, Nakuru</p>
+    <p>Email: info@attickenterprise.com</p>
+    <p>Phone: +254 712 345 678</p>
+
+    <div class="social-icons">
+        <a href="#"><i class='bx bxl-facebook'></i></a>
+        <a href="#"><i class='bx bxl-instagram'></i></a>
+        <a href="#"><i class='bx bxl-twitter'></i></a>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 ATTICK ENTERPRISE LTD. All Rights Reserved.
+    </div>
+</div>
+
+<script>
+document.getElementById("jobForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    var name = this.querySelector("input[type='text']").value;
+    var phone = this.querySelector("input[type='tel']").value;
+    var email = this.querySelector("input[type='email']").value;
+    var position = this.querySelector("select").value;
+    var experience = this.querySelector("textarea").value;
+
+    var message = 
+        "JOB APPLICATION - ATTICK ENTERPRISE%0A%0A" +
+        "Full Name: " + name + "%0A" +
+        "Phone: " + phone + "%0A" +
+        "Email: " + email + "%0A" +
+        "Position: " + position + "%0A" +
+        "Experience: " + experience;
+
+    var whatsappURL = "https://wa.me/2547XXXXXXXX?text=" + message;
+
+    window.open(whatsappURL, "_blank");
+});
+</script>
+
+
+<script>
+function openSidebar() {
+    document.getElementById("sidebar").style.width = "250px";
+}
+
+function closeSidebar() {
+    document.getElementById("sidebar").style.width = "0";
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
