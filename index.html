@@ -474,7 +474,8 @@ body {
     gap: 20px;
 }
 
-.price-images img {
+.price-images img,
+.price-images video{
     width: 100%;
     aspect-ratio: 4 / 3;
      max-width: 500px;   /* control maximum size */
@@ -621,7 +622,7 @@ body {
 
 </div>
 
-
+<div id="gallery">
 <div id="prices" class="price-section">
 
     <!-- ================= DOOR PRICES ================= -->
@@ -705,7 +706,16 @@ body {
     </div>
 
 <div class="price-images" style="text-align: center;">
-    <img src="picturerails.jpeg" style="display: inline-block;">
+    
+    <video 
+        src="galler.mp4" 
+        autoplay 
+        muted 
+        
+        playsinline 
+       >
+    </video>
+
 </div>
 
 <div class="order-section">
@@ -717,6 +727,7 @@ body {
 </div>
 
 
+</div>
 </div>
 
   <div class="map-section" id="location">
@@ -840,6 +851,7 @@ function closeSidebar() {
 
 </body>
 </html>
+
 
 
 
