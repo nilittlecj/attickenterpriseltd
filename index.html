@@ -474,7 +474,7 @@ body {
     gap: 20px;
 }
 
-.price-images img,
+
 .price-images video {
     width: 100%;
     min-width: 300px;      /* prevents being too small */
@@ -485,6 +485,15 @@ body {
     border-radius: 14px;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+     .price-images img{ width: 100%; 
+      aspect-ratio: 4 / 3; 
+      max-width: 500px;
+      /* control maximum size */ height: auto;
+      height: auto;
+        /* keeps images proportional */ object-fit: cover;
+         border-radius: 14px;
+          transition: transform 0.4s ease,
+         box-shadow 0.4s ease; }
 
 
 /* Hover effect (desktop only feel) */
@@ -853,6 +862,7 @@ function closeSidebar() {
 
 </body>
 </html>
+
 
 
 
