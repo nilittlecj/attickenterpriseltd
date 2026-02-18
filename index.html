@@ -780,31 +780,32 @@ If you experience any difficulty locating us, feel free to call us for guidance.
 <div id="vaccancy" class="careers-section">
     <h2>Job Application for the Position of Secretary</h2>
     <p>
-        Interested in joining ATTICK ENTERPRISE LTD as a Secretary? 
-        Please fill out the form below and include a brief CV letter explaining 
-        why you are suitable for the position.
+        Interested in joining ATTICK ENTERPRISE LTD as a Secretary?
+        Please fill out the form below and include a brief cover letter
+        explaining why you are suitable for the position.
     </p>
 
     <form class="job-form" id="jobForm">
 
         <div class="form-group">
-            <label>Full Name</label>
-            <input type="text" name="fullname" required>
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" required>
         </div>
 
         <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" name="phone" required>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
         </div>
 
         <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" name="email" required>
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
         </div>
 
         <div class="form-group">
-            <label>CV Letter</label>
-            <textarea name="cvletter" rows="5" placeholder="Write your CV letter here..." required></textarea>
+            <label for="coverletter">Cover Letter</label>
+            <textarea id="coverletter" name="coverletter" rows="5"
+                placeholder="Write your cover letter here..." required></textarea>
         </div>
 
         <button type="submit" class="apply-btn">
@@ -842,19 +843,19 @@ If you experience any difficulty locating us, feel free to call us for guidance.
 document.getElementById("jobForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    var name = document.querySelector("input[name='fullname']").value;
-    var phone = document.querySelector("input[name='phone']").value;
-    var email = document.querySelector("input[name='email']").value;
-    var cvletter = document.querySelector("textarea[name='cvletter']").value;
+    var name = document.getElementById("fullname").value;
+    var phone = document.getElementById("phone").value;
+    var email = document.getElementById("email").value;
+    var coverletter = document.getElementById("coverletter").value;
 
     var message =
-        "JOB APPLICATION - SECRETARY%0A%0A" +
-        "Full Name: " + encodeURIComponent(name) + "%0A" +
-        "Phone: " + encodeURIComponent(phone) + "%0A" +
-        "Email: " + encodeURIComponent(email) + "%0A%0A" +
-        "CV Letter:%0A" + encodeURIComponent(cvletter);
+        "JOB APPLICATION - SECRETARY\n\n" +
+        "Full Name: " + name + "\n" +
+        "Phone: " + phone + "\n" +
+        "Email: " + email + "\n\n" +
+        "Cover Letter:\n" + coverletter;
 
-    var whatsappURL = "https://wa.me/254112375924?text=" + message;
+    var whatsappURL = "https://wa.me/254112375924?text=" + encodeURIComponent(message);
 
     window.open(whatsappURL, "_blank");
 });
@@ -871,8 +872,7 @@ function closeSidebar() {
 }
 </script>
 
-</body>
-</html>
+
 
 
 
