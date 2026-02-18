@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Basic SEO -->
+<title>ATTICK Enterprises Limited | Timber & Lumber Supplier in Nakuru</title>
+<meta name="description" content="ATTICK Enterprises Limited is a trusted timber and lumber supplier in Nakuru, Kenya. Quality wood products, reliable service, and competitive prices.">
+<link rel="canonical" href="https://attickenterpriseslimited.co.ke/">
+
+<!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+<meta property="og:title" content="ATTICK Enterprises Limited | Timber & Lumber Supplier in Nakuru">
+<meta property="og:description" content="Quality timber and lumber products in Nakuru, Kenya. Contact ATTICK Enterprises Limited for reliable and affordable building materials.">
+<meta property="og:image" content="https://attickenterpriseslimited.co.ke/images/cover.jpg">
+<meta property="og:url" content="https://attickenterpriseslimited.co.ke/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ATTICK Enterprises Limited">
+
+<!-- Twitter Card (Optional but recommended) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ATTICK Enterprises Limited">
+<meta name="twitter:description" content="Trusted timber and lumber supplier in Nakuru, Kenya.">
+<meta name="twitter:image" content="https://attickenterpriseslimited.co.ke/images/cover.jpg">
+
     <meta charset="UTF-8">
     <title>
 Attick Enterprise Ltd Nakuru | Timber, Doors, Wood Machines & Job Vacancies
@@ -758,45 +777,35 @@ If you experience any difficulty locating us, feel free to call us for guidance.
             <i class='bx bx-phone'></i>
         </a>
     </div>
-
-    <div id="vaccancy" class="careers-section">
-    <h2>Job Application – Lumber Yard</h2>
-    <p>Interested in working with ATTICK ENTERPRISE LTD? Fill out the form below.</p>
+<div id="vaccancy" class="careers-section">
+    <h2>Job Application for the Position of Secretary</h2>
+    <p>
+        Interested in joining ATTICK ENTERPRISE LTD as a Secretary? 
+        Please fill out the form below and include a brief CV letter explaining 
+        why you are suitable for the position.
+    </p>
 
     <form class="job-form" id="jobForm">
 
         <div class="form-group">
             <label>Full Name</label>
-            <input type="text" required>
+            <input type="text" name="fullname" required>
         </div>
 
         <div class="form-group">
             <label>Phone Number</label>
-            <input type="tel" required>
+            <input type="tel" name="phone" required>
         </div>
 
         <div class="form-group">
             <label>Email Address</label>
-            <input type="email">
+            <input type="email" name="email" required>
         </div>
-
-        <!-- <div class="form-group">
-            <label>Position Applying For</label>
-            <select required>
-                <option value="">Select Position</option>
-                <option>Lumber Yard Attendant</option>
-                <option>Machine Operator</option>
-                <option>Driver</option>
-                <option>Sales Assistant</option>
-                <option>General Worker</option>
-            </select>
-        </div> -->
 
         <div class="form-group">
-            <label>Work Experience</label>
-            <textarea rows="4"></textarea>
+            <label>CV Letter</label>
+            <textarea name="cvletter" rows="5" placeholder="Write your CV letter here..." required></textarea>
         </div>
-
 
         <button type="submit" class="apply-btn">
             <i class='bx bx-send'></i> Submit Application
@@ -808,40 +817,42 @@ If you experience any difficulty locating us, feel free to call us for guidance.
 <div class="footer">
     <h3>ATTICK ENTERPRISE LTD</h3>
     <p>P.O. Box 16145, Nakuru</p>
-    <p>Email: attickenterprise@gmail.com</p>
+    <p>Email: attickenterpriseslimited@gmail.com</p>
     <p>Phone: +254 112 375 924</p>
 
-  
-<div class="social-icons">
-    <a href="https://www.facebook.com/share/1J3Tg7sYXL/"><i class='bx bxl-facebook'></i></a>
-    <a href="https://www.instagram.com/attickenterprise/
-"><i class='bx bxl-instagram'></i></a>
-    <a href="mailto:attickenterprise@gmail.com">
-        <i class='bx bx-envelope'></i>
-    </a>
-</div>
+    <div class="social-icons">
+        <a href="https://www.facebook.com/share/1J3Tg7sYXL/">
+            <i class='bx bxl-facebook'></i>
+        </a>
+        <a href="https://www.instagram.com/attickenterprise/">
+            <i class='bx bxl-instagram'></i>
+        </a>
+        <a href="mailto:attickenterpriseslimited@gmail.com">
+            <i class='bx bx-envelope'></i>
+        </a>
+    </div>
+
     <div class="footer-bottom">
         © 2026 ATTICK ENTERPRISE LTD. All Rights Reserved.
     </div>
 </div>
 
+
 <script>
 document.getElementById("jobForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    var name = this.querySelector("input[type='text']").value;
-    var phone = this.querySelector("input[type='tel']").value;
-    var email = this.querySelector("input[type='email']").value;
-    var position = this.querySelector("select").value;
-    var experience = this.querySelector("textarea").value;
+    var name = document.querySelector("input[name='fullname']").value;
+    var phone = document.querySelector("input[name='phone']").value;
+    var email = document.querySelector("input[name='email']").value;
+    var cvletter = document.querySelector("textarea[name='cvletter']").value;
 
-    var message = 
-        "JOB APPLICATION - ATTICK ENTERPRISES%0A%0A" +
-        "Full Name: " + name + "%0A" +
-        "Phone: " + phone + "%0A" +
-        "Email: " + email + "%0A" +
-        "Position: " + position + "%0A" +
-        "Experience: " + experience;
+    var message =
+        "JOB APPLICATION - SECRETARY%0A%0A" +
+        "Full Name: " + encodeURIComponent(name) + "%0A" +
+        "Phone: " + encodeURIComponent(phone) + "%0A" +
+        "Email: " + encodeURIComponent(email) + "%0A%0A" +
+        "CV Letter:%0A" + encodeURIComponent(cvletter);
 
     var whatsappURL = "https://wa.me/254112375924?text=" + message;
 
@@ -862,6 +873,7 @@ function closeSidebar() {
 
 </body>
 </html>
+
 
 
 
