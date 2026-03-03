@@ -321,38 +321,55 @@ body {
 }
 
 /* ===============================
-   FOOTER
+   FOOTER SOCIAL ICONS UPDATED
 ================================= */
-.footer {
-    background-color: var(--primary);
-    color: var(--white);
-    padding: 50px 20px;
-    text-align: center;
-}
 
 .footer .social-icons {
-    margin-top: 15px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
 .footer .social-icons a {
-    color: white;
+    width: 50px;
+    height: 50px;
+    background: whitesmoke;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 22px;
-    margin: 0 10px;
     text-decoration: none;
     transition: 0.3s ease;
 }
 
+/* Individual brand colors */
+.footer .social-icons a.facebook i {
+    color: #1877F2;
+}
+
+.footer .social-icons a.instagram i {
+    color: #E4405F;
+}
+
+.footer .social-icons a.whatsapp i {
+    color: #25D366;
+}
+
+.footer .social-icons a.tiktok i {
+    color: #000000;
+}
+
+.footer .social-icons a.youtube i {
+    color: #FF0000;
+}
+
+/* Hover effect */
 .footer .social-icons a:hover {
-    color: var(--accent);
-    transform: scale(1.2);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
-
-.footer-bottom {
-    margin-top: 25px;
-    font-size: 13px;
-    opacity: 0.9;
-}
-
 /* Prevent header overlap */
 #about,
 .gallery,
@@ -871,6 +888,7 @@ function closeSidebar() {
     document.getElementById("sidebar").style.width = "0";
 }
 </script>
+
 
 
 
